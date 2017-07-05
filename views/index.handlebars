@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Comic Collection</title>
+    <link rel="stylesheet" href="../public/styles.css">
+</head>
+
+<body>
+    <h1>Here is your collection of comics</h1>
+    <h3>Edit any text in the boxes next to the fields in order to edit the comic, or add a new one with the form below</h3>
+
+    <form action="/index" method="POST" class="new-comic">
+        <input type="text" name="name" placeholder="Comic Title" /> <br />
+        <input type="text" name="hero" placeholder="The main character" /> <br />
+        <input type="text" name="villain" placeholder="The villain" /> <br />
+        <input type="text" name="writers" placeholder="The Writers (separate with commas)" /> <br />
+        <input type="text" name="pages" placeholder="Number of pages" /> <br />
+        <button type="submit">Add new comic</button>
+    </form>
+
+    {{#comics}}
+    <form action="/index/update/{{id}}" method="POST" class="update">
+        <div class="comic-card">
+            <p>Title: {{name}} <input type="text" name="name" value="{{name}}" /> </p>
+            {{#characters}}
+            <div>
+                <p>Hero: {{hero}} <input type="text" name="hero" value="{{hero}}" /> </p>
+                <p>Villain: {{villain}} <input type="text" name="villain" value="{{villain}}" /></p>
+            </div>
+            {{/characters}}
+            <div>
+                <p>Writers: </p>
+                <ul>
+                    {{#writers}}
+                    <li>{{.}}</li>
+                    {{/writers}}
+                </ul>
+                <input type="text" name="writers" value="{{writers}}" />
+            </div>
+            <p>Pages: {{pages}} <input type="text" name="pages" value="{{pages}}" /></p>
+            <button type="submit" class="update-button">Update fields</button>
+    </form>
+    <form action="/index/delete/{{id}}" method="POST" class="delete">
+        <button type="submit" class="delete-button">Delete Comic</button>
+    </form>
+    </div>
+    {{/comics}}
+</body>
+
+</html>

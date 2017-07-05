@@ -1,0 +1,20 @@
+{
+  "name": "day-33",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mongodb": "^2.2.29",
+    "mongoose": "^4.10.8",
+    "qs": "^6.5.0"
+  }
+}
